@@ -1,73 +1,54 @@
-# React + TypeScript + Vite
+# 2D Electromagnetic Scattering Simulator
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Interactive visualization of electromagnetic plane wave scattering from an infinite dielectric cylinder. Computes and displays the scattered field using Mie theory with configurable material properties, wavelength, and polarization.
 
-Currently, two official plugins are available:
+## For Developers
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### Tech Stack
 
-## React Compiler
+- **Frontend**: React + TypeScript + Vite
+- **Computation**: Rust compiled to WebAssembly (wasm-pack)
+- **Core Math**: Custom Bessel function implementations validated against SciPy
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### Prerequisites
 
-## Expanding the ESLint configuration
+- Node.js (v18+)
+- Rust toolchain (`rustup`)
+- wasm-pack (`cargo install wasm-pack`)
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### Commands
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+```bash
+# Initial setup (install dependencies, configure git hooks)
+make setup
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+# Run development server
+make run
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+# Build for production
+make build
+
+# Run all tests
+make test
+
+# Run Bessel function validation tests
+make test-bessel        # Full (~180K points)
+make test-bessel-quick  # Quick (1000 samples)
+
+# Lint and format
+make lint
+make format
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### Project Structure
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```
+├── src/                  # React frontend
+├── scattering-core/      # Rust WASM library
+│   ├── src/
+│   │   ├── bessel.rs     # Bessel/Hankel functions
+│   │   ├── scattering.rs # Mie coefficients
+│   │   └── field.rs      # Field computation
+│   └── tests/            # Validation tests
+└── Makefile              # Build commands
 ```
