@@ -1,0 +1,224 @@
+.cylinder-controls {
+  background: #1e1e2e;
+  border: 1px solid #333;
+  border-radius: 8px;
+  padding: 1.5rem;
+  min-width: 320px;
+  max-width: 400px;
+}
+
+.cylinder-controls h2 {
+  margin: 0 0 1.5rem 0;
+  font-size: 1.2rem;
+  color: #e0e0e0;
+  border-bottom: 1px solid #333;
+  padding-bottom: 0.5rem;
+}
+
+.control-section {
+  margin-bottom: 1.5rem;
+}
+
+.section-label {
+  display: block;
+  font-weight: 600;
+  color: #b0b0b0;
+  margin-bottom: 0.25rem;
+}
+
+.section-hint {
+  margin: 0 0 0.5rem 0;
+  font-size: 0.75rem;
+  color: #666;
+  font-style: italic;
+}
+
+.wavelength-control,
+.order-control {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.wavelength-control input[type="range"],
+.order-control input[type="range"] {
+  flex: 1;
+}
+
+.wavelength-control input[type="number"],
+.order-control input[type="number"] {
+  width: 80px;
+}
+
+.derived-value {
+  margin-top: 0.5rem;
+  font-size: 0.8rem;
+  color: #00d4ff;
+  font-family: monospace;
+}
+
+/* Polarization buttons */
+.polarization-buttons {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.polarization-buttons button {
+  flex: 1;
+  padding: 0.6rem 1rem;
+  border: 1px solid #444;
+  background: #2a2a3a;
+  color: #b0b0b0;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: all 0.2s;
+}
+
+.polarization-buttons button:hover {
+  background: #3a3a4a;
+  border-color: #555;
+}
+
+.polarization-buttons button.active {
+  background: #00d4ff;
+  color: #1a1a2a;
+  border-color: #00d4ff;
+  font-weight: 600;
+}
+
+/* Complex input styles */
+.complex-input {
+  background: #252535;
+  border-radius: 6px;
+  padding: 1rem;
+}
+
+.complex-label {
+  display: block;
+  font-weight: 600;
+  color: #00d4ff;
+  margin-bottom: 0.75rem;
+}
+
+.complex-fields {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.field-group {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.field-label {
+  font-size: 0.75rem;
+  color: #888;
+  min-width: 40px;
+}
+
+.field-group input[type="range"] {
+  flex: 1;
+}
+
+.field-group input[type="number"] {
+  width: 70px;
+}
+
+.complex-display {
+  margin-top: 0.5rem;
+  padding: 0.5rem;
+  background: #1a1a2a;
+  border-radius: 4px;
+  font-family: monospace;
+  font-size: 1rem;
+  color: #00ff88;
+  text-align: center;
+}
+
+/* Number input styling */
+input[type="number"] {
+  background: #2a2a3a;
+  border: 1px solid #444;
+  border-radius: 4px;
+  padding: 0.4rem 0.5rem;
+  color: #e0e0e0;
+  font-family: monospace;
+  font-size: 0.9rem;
+}
+
+input[type="number"]:focus {
+  outline: none;
+  border-color: #00d4ff;
+}
+
+/* Range slider styling */
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 6px;
+  background: #2a2a3a;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #00d4ff;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+input[type="range"]::-webkit-slider-thumb:hover {
+  background: #00a8cc;
+}
+
+input[type="range"]::-moz-range-thumb {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #00d4ff;
+  cursor: pointer;
+  border: none;
+}
+
+/* Material info section */
+.material-info {
+  background: #252535;
+  border-radius: 6px;
+  padding: 1rem;
+  margin-top: 1rem;
+}
+
+.material-info h3 {
+  margin: 0 0 0.75rem 0;
+  font-size: 0.9rem;
+  color: #888;
+}
+
+.material-info table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.material-info td {
+  padding: 0.25rem 0;
+  font-family: monospace;
+  font-size: 0.85rem;
+}
+
+.material-info td:first-child {
+  color: #888;
+  width: 140px;
+}
+
+.material-info td:last-child {
+  color: #e0e0e0;
+  text-align: right;
+}
